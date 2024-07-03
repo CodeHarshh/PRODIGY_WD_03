@@ -97,6 +97,7 @@ newgameBtn.addEventListener("click",()=>{
 restartBtn.addEventListener("click", () => {
     cnt = 0;
     xTurn = true;
+      PlayerTurn.innerHTML="x";
     msg.innerHTML = "";
     Popup.classList.remove("show");
     optionBtn.forEach((button) => {
