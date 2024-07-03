@@ -17,7 +17,7 @@ const winningPatterns = [
     [2, 4, 6]
 ];
 
-let xTurn=false;
+let xTurn=true;
 let cnt=0;
 
 
@@ -40,13 +40,22 @@ return null;
 
 
 
+
 optionBtn.forEach((element) =>{
     element.addEventListener("click",()=>{
+
+    
+        
 if(xTurn){
-    PlayerTurn.innerHTML="O";
+ 
     xTurn=false;
+    PlayerTurn.innerHTML="x";
     element.innerHTML="x";
     element.disabled=true;
+    PlayerTurn.innerHTML="O";
+    if (board.length === 0) {
+        PlayerTurn.innerHTML = "X";
+    }
 }
 
 else{
