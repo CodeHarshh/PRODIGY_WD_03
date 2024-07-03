@@ -1,0 +1,120 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Raleway", sans-serif;
+}
+
+body {
+    height: 100vh;
+    background: linear-gradient(to right, #8052ec, #d161ff);   width: 100%;
+}
+
+html {
+    font-size: 16px;
+}
+
+.wrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.container {
+    width: 70vmin;
+    height: 70vmin;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.button-option {
+    background: #ffffff;
+    width: 20vmin;
+    height: 20vmin;
+    border: none;
+    border-radius: 10px;
+    font-size: 12vmin;
+    color: #d161ff;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+.button-option:hover {
+    width: 29%;
+    height: 29%;
+}
+
+/* it will not allow the  buttons to do  hover effect if it clicked once */
+.button-option:disabled {
+    pointer-events: none; 
+}
+
+.restart {
+    font-size: 16px;
+    margin-top: 20px;
+    padding: 1rem;
+    background-color: black;
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    position: relative;
+    margin: 1em auto;
+    display: block;
+    margin-right: 166px;
+    font-weight: 700;
+}
+
+.popup {
+    background: linear-gradient(135deg, #8052ec, #d161ff);
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 0.7em;
+    font-size: 12vmin;
+}
+
+#newgame {
+    font-size: 0.4em;
+    padding: 0.7% 4%;
+    background-color: #0a0027;
+    color: #ffffff;
+    border-radius: 10px;
+    border: none;
+}
+
+#message {
+    color: #ffffff;
+    text-align: center;
+    font-size: 1em;
+    font-weight: bold;
+    font-family: "Arial", sans-serif;
+}
+
+.popup.show {
+    display: flex; /* Toggle display:flex; when adding .show class */
+}
+
+.turn-indicator {
+    color: #ffffff;
+    font-size: 30px;
+font-weight: bolder;
+    margin-bottom: 20px;
+  position: relative;
+  top:220px;
+  left: 480px;;
+  z-index:2;
+    
+}
+
+.turn-indicator #player-turn{
+ background-image: radial-gradient( circle farthest-corner at 10% 20%,  rgba(97,186,255,1) 0%, rgba(166,239,253,1) 90.1% );
+    -webkit-background-clip: text; 
+    background-clip: text; 
+    color: transparent; 
+
+}
