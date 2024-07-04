@@ -76,6 +76,8 @@ newgameBtn.addEventListener("click", () => {
     });
 });
 
+
+
 restartBtn.addEventListener("click", () => {
     cnt = 0;
     xTurn = true;
