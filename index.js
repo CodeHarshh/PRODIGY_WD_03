@@ -18,13 +18,9 @@ const winningPatterns = [
 
 let xTurn = true;
 let cnt = 0;
-let board = [];
+let board = Array(9).fill(null);
 
 const winnerCheck = () => {
-    optionBtn.forEach((element, index) => {
-        board[index] = element.innerHTML;
-    });
-    
     for (let pattern of winningPatterns) {
         const [a, b, c] = pattern;
         if (board[a] && board[a] === board[b] && board[a] === board[c]) {
@@ -34,25 +30,21 @@ const winnerCheck = () => {
     return null;
 };
 
-optionBtn.forEach((element) => {
+optionBtn.forEach((element, index) => {
     element.addEventListener("click", () => {
         if (xTurn) {
-            xTurn = false;
-            PlayerTurn.innerHTML = "x";
-            element.innerHTML = "x";
-            element.disabled = true;
+            element.innerHTML = "X";
+            board[index] = "X";
             PlayerTurn.innerHTML = "O";
-            if (board.length === 0) {
-                PlayerTurn.innerHTML = "X";
-            }
         } else {
+            element.innerHTML = "O";
+            board[index] = "O";
             PlayerTurn.innerHTML = "X";
-            xTurn = true;
-            element.innerHTML = "o";
-            element.disabled = true;
         }
-        
+        element.disabled = true;
+        xTurn = !xTurn;
         cnt += 1;
+
         let winner = winnerCheck();
         if (winner) {
             msg.innerHTML = `Player ${winner} 🏆 wins!`;
@@ -65,27 +57,18 @@ optionBtn.forEach((element) => {
     });
 });
 
-newgameBtn.addEventListener("click", () => {
+const resetGame = () => {
     cnt = 0;
     xTurn = true;
+    board = Array(9).fill(null);
     msg.innerHTML = "";
     Popup.classList.remove("show");
-    optionBtn.forEach((button) => {
-        button.innerHTML = "";
-        button.disabled = false;
-    });
-});
-
-
-
-restartBtn.addEventListener("click", () => {
-    cnt = 0;
-    xTurn = true;
     PlayerTurn.innerHTML = "X";
-    msg.innerHTML = "";
-    Popup.classList.remove("show");
     optionBtn.forEach((button) => {
         button.innerHTML = "";
         button.disabled = false;
     });
-});
+};
+
+newgameBtn.addEventListener("click", resetGame);
+restartBtn.addEventListener("click", resetGame);
